@@ -20,6 +20,8 @@ jobs:
           LINTER_RULES_PATH: /
           JAVASCRIPT_ES_CONFIG_FILE: .eslintrc.json
           VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_ALL_CODEBASE: false
+          FILTER_REGEX_EXCLUDE: ".*node_modules.*"
 
   test-execution:
     needs: linter-execution
@@ -30,6 +32,5 @@ jobs:
 
       - name: Run jest tests
         run: |
-          npm install jest
+          npm install jest@27
           npm test
-
